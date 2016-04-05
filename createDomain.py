@@ -7,9 +7,11 @@ import requests
 import json
 
 DOMAIN_HOST = 'http://fusion.qiniuapi.com'
-
+ACCESS_KEY = "you-access-key";
+SERCET_KEY = "you-sercet-key";
 if __name__ == '__main__':
-        q = Auth("you-access-key", "you-sercet-key")
+        q = Auth(ACCESS_KEY, SERCET_KEY)
+        # 这里构建您的payload
         data = {
             "sourceType": "qiniuBucket",
             "sourceQiniuBucket": "you-source",
@@ -19,8 +21,7 @@ if __name__ == '__main__':
             # "lineId": "cdb07271bfe14dc06d5cdb51d5a1041b",
             "registerNo": "you-register-no"
         }
-        # token = self.generate_upload_token(scope)
-
+        #这里替换掉您的域名 
         url = '%s/v2/domains/%s' % (DOMAIN_HOST, "you-domain-name")
         print str(data)
         token = q.token_of_request(url,content_type="application/json");
